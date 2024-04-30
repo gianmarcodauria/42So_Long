@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:23:18 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/04/29 13:10:54 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/04/30 14:19:50 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	set_values(t_first *johnny)
 	johnny->map.map_path = NULL;
 	johnny->map.heigth = 0;
 	johnny->map.width = 0;
+	johnny->directions_set = 0;
 	johnny->map.n_c = 0;
 	johnny->map.n_p = 0;
 	johnny->map.n_n = 0;

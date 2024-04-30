@@ -4,6 +4,18 @@
 #define COLLECTABLES 6
 #define XPM_MAX 6
 
+#define BUTTON_ESC 65307
+
+#define BUTTON_A 97
+#define BUTTON_D 100
+#define BUTTON_W 119
+#define BUTTON_S 115
+
+#define BUTTON_UP 65362
+#define BUTTON_DOWN 65364
+#define BUTTON_LEFT 65361
+#define BUTTON_RIGHT 65363
+
 typedef struct s_third
 {
 	char	name_pos;
@@ -48,6 +60,7 @@ typedef struct s_first
 	int		img_width;
     int     Xmax;
     int     Ymax;
+	int		directions_set;
 	t_second	map;
 
 } t_first;

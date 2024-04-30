@@ -7,7 +7,7 @@ MFLAGS = -L./mlx -lmlx_Linux -lXext -lX11 -lm -lbsd
 LIBFTDIR = ./libft
 MLXDIR = ./mlx
 
-SRCS = dotber_check.c fd2m_shapech_wallech.c flooddy.c init.c main_game.c pnec_check.c position.c free_me.c start_game.c
+SRCS = dotber_check.c fd2m_shapech_wallech.c flooddy.c init.c main_game.c pnec_check.c position.c free_me.c start_game.c buttons.c enemy_dir.c enemy_button.c
 
 OBJS = $(SRCS:%.c=%.o)
 

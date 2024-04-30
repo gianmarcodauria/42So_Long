@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:11:27 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/04/29 17:23:52 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/04/30 17:23:39 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	run_map(t_first *run)
 {
 	int	h;
 	int	w;
+	char	*directions;
 
 	h = 0;
 	while (h < run->Ymax)
@@ -56,6 +57,10 @@ void	run_map(t_first *run)
 		}
 		++h;
 	}
+	directions = ft_itoa(run->directions_set);
+	mlx_string_put(run->mlx, run->win, 5, 95, 0x000000, "STEPS : ");
+	mlx_string_put(run->mlx, run->win, 95, 95, 0x000000, directions);
+	free (directions);
 }
 void	img_val(t_first *img)
 {
@@ -66,6 +71,22 @@ void	img_val(t_first *img)
 	img->map.ground.img = mlx_xpm_file_to_image(img->mlx, "maps/png/FLOOR.xpm", &(img->img_width), &(img->img_height));
 	img->map.wall.img = mlx_xpm_file_to_image(img->mlx, "maps/png/MURO.xpm", &(img->img_width), &(img->img_height));
 }
+
+int	hook_my_but(int	button, t_first *hooker)
+{
+	if (button == BUTTON_UP || button == BUTTON_W)
+		but_u(hooker);
+	else if (button == BUTTON_DOWN || button == BUTTON_S)
+		but_d(hooker);
+	else if (button == BUTTON_LEFT || button == BUTTON_A)
+		but_l(hooker);
+	else if (button == BUTTON_RIGHT || button == BUTTON_D)
+		but_r(hooker);
+	else if (button == BUTTON_ESC)
+		out_win(hooker);
+	return (1);
+}
+
 int start_wg(t_first *start)
 {
 	start->mlx = mlx_init();
@@ -73,9 +94,14 @@ int start_wg(t_first *start)
 	Ymax * 100, "Scary Things");
 	img_val(start);
 	run_map(start);
+	mlx_key_hook(start->win, hook_my_but, start);
+	mlx_hook(start->win, 17, 0, out_win, start);
+	mlx_loop_hook(start->mlx, enemy_random, start);
+	mlx_loop_hook(start->mlx, enemy_toorandom, start);
 	mlx_loop(start->mlx);
 	//img = mlx_xpm_file_to_image(start->mlx, relative_path, st, &img_height);
 	return (1);
 }
+
 
 
