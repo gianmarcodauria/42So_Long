@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:02:01 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/04/26 12:29:31 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:16:06 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,11 @@ static int  p_echeck(t_first *letters)
 	}
 	if (letters->map.P != 1)
 	{
-        printf ("P ERROR\n");
+        free_me(letters);
         exit (0);
-        return (0);
     }
 	else if (letters->map.E != 1)
-		return (0);
+        return (0);
 	return (1);
 }
 
@@ -58,7 +57,7 @@ static int n_check(t_first *letters)
                 letters->map.N++;
                 if (letters->map.N > 1)
                 {
-                    printf("WRONG N\n");
+                    free_me(letters);
                     return (0);
                 }
             }
@@ -86,7 +85,7 @@ static int c_check(t_first *letters)
     }
     if (letters->map.C <= 0 || letters->map.C > 6 )
     {
-        printf("WRONG C\n");
+        free_me(letters);
         return (0);
     }
     return (1);
@@ -106,7 +105,7 @@ int	my_char(t_first *str)
         {
             if (str->matrix[i][j] != '0' && str->matrix[i][j] != '1' && str->matrix[i][j] != 'E' && str->matrix[i][j] != 'N' && str->matrix[i][j] != 'C' && str->matrix[i][j] != 'P')
             {
-                printf ("MY_CHAR = WRONG LETTER");
+                free_me(str);
                 return (0);
             }
             j++;
@@ -118,7 +117,7 @@ int	my_char(t_first *str)
 
 int letter_check(t_first *letters)
 {
-    printf ("mychar\n");
+    //printf ("mychar\n");
 	if (my_char(letters) == 1)
     {
         if (p_echeck(letters) == 1 && n_check(letters) == 1 && c_check(letters) == 1)

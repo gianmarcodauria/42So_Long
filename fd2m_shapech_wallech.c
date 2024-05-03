@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:12:05 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/04/26 12:28:36 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:06:28 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ char	*fd2str(int fd)
 	}
 	if (ft_strlen(result) == 0)
 		return (NULL);
-	// close(fd);
 	return (result);
 }
 
@@ -51,7 +50,10 @@ int	shapeCheck(char **shape, t_first *m)
 	while (shape[++Y])
 	{
 		if (ft_strlen(shape[Y]) != (size_t) m->Xmax)
-			exit (0);
+		{
+			return (0);
+			//exit (0);
+		}
 	}
 	m->Ymax = Y;
 	m->matrix = shape;
@@ -66,7 +68,7 @@ int	wallCheck(t_first *walle)
 	height = -1;
 	while (walle->matrix[++height])
 	{
-		printf ("ARRIVA QUI y - %d  \n", height);
+		//printf ("ARRIVA QUI y - %d  \n", height);
 		width = 0;
 		while (walle->matrix[height][width])
 		{

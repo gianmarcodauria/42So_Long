@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:30:25 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/05/03 14:34:35 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:44:13 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <time.h>
 
 int		dot_ber(char *fileber);
+int	matrix_canc(char **matrix);
 char	*fd2str(int fd);
 char	**second_matrix(t_first *gameM);
 int		letter_check(t_first *letters);
@@ -34,9 +35,9 @@ int pam_maker(t_first *pam);
 void	set_values(t_first *johnny);
 void track_positions(t_first *juego, int he, int wi, char type);
 //void	print_matrix(t_first *game);
-void stamp_err(char *str);
+//void stamp_err(char *str);
 void	free_me(t_first *dm);
-int	anti_leak(char *err, int type_err, t_first *dm);
+int	anti_leak(/*char *err */ int type_err, t_first *dm);
 //void    stampmat(char **mtr);
 void flood_fill(t_first *floodmap, int height, int width, char **dupMap);
 char **filler(t_first *carta, char **doubleM);

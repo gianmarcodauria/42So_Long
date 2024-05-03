@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:23:18 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/05/03 12:19:16 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:43:22 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int last_floodcheck(char **dupMap)
 			if (dupMap[Y][X] == 'P' || dupMap[Y][X] == 'C' || dupMap[Y][X] == 'E' || dupMap[Y][X] == 'N')
 			{
 
-				printf("siamo qui something went wrong\n");
+				//printf("siamo qui something went wrong\n");
 				return(0);
 			}
 			X++;
@@ -106,6 +106,19 @@ int last_floodcheck(char **dupMap)
 // 	}
 // 	printf("\n\n");
 // }
+int	matrix_canc(char **matrix)
+{
+	int	y;
+
+	y = 0;
+	while (matrix[y] != NULL)
+	{
+		free(matrix[y]);
+		y++;
+	}
+	free(matrix);
+	return (1);
+}
 
 int pam_maker(t_first *pam)
 {
@@ -117,8 +130,11 @@ int pam_maker(t_first *pam)
 	//stampmat(doubleMat);
 	if(last_floodcheck(doubleMat))
 	{
-		free(doubleMat);
+		close_matrix(doubleMat);
 		return(1);
 	}
-	exit (0);
+	//
+	close_matrix (doubleMat);
+	//
+	return (0);
 }

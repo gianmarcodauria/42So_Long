@@ -6,49 +6,49 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:16:33 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/04/26 12:36:41 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:38:55 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 #include <mlx.h>
 
-void stamp_err(char *str)
-{
-	printf ("Error: %s\n", str);
-}
+// void stamp_err(char *str)
+// {
+// 	printf ("Error: %s\n", str);
+// }
 
 void	free_me(t_first *dm)
 {
 	int	y;
+//	int	x;
 
 	y = -1;
-	while (++y < dm->Ymax)
+	while (dm->matrix[++y])
 	{
 		free (dm->matrix[y]);
 	}
-	free(dm);
+	free(dm->matrix);
 }
 
-int	anti_leak(char *err, int type_err, t_first *dm)
+int	anti_leak(/*char *err */ int type_err, t_first *dm)
 {
 	if (type_err == 1)
 	{
-		stamp_err(err);
+		//stamp_err(err);
 		return (0);
 	}
 	else if (type_err == 2)
 	{
 		free_me(dm);
-		stamp_err(err);
+		//stamp_err(err);
 		return (0);
 	}
 	else if (type_err == 3)
 	{
 		free_me(dm);
-		printf ("%s", err);
+		//printf ("%s", err);
 		return (0);
-		//ft_destroy(dm);
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:55:54 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/05/03 14:50:36 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 15:01:07 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	but_u(t_first *but)
 	{
 		if (but->matrix[Py - 1][Px] == 'N')
 		{
+			write (1, "LOSER!\n", 6);
 			exit(1);
 			free (but);
 		}
@@ -51,6 +52,7 @@ void	but_d(t_first *but)
 	{
 		if (but->matrix[Py + 1][Px] == 'N')
 		{
+			write (1, "LOSER!\n", 6);
 			exit(1);
 			free (but);
 		}
@@ -78,6 +80,7 @@ void	but_l(t_first *but)
 	{
 		if (but->matrix[Py][Px - 1] == 'N')
 		{
+			write (1, "LOSER!\n", 6);
 			exit(1);
 			free (but);
 		}
@@ -105,6 +108,7 @@ void	but_r(t_first *but)
 	{
 		if (but->matrix[Py][Px + 1] == 'N')
 		{
+			write (1, "LOSER!\n", 6);
 			exit(1);
 			free (but);
 		}
