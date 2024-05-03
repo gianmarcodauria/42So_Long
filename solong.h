@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:30:25 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/04/30 17:22:56 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 14:34:35 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void flood_fill(t_first *floodmap, int height, int width, char **dupMap);
 char **filler(t_first *carta, char **doubleM);
 int	my_char(t_first *str);
 void	run_map(t_first *run);
-int enemy_random(t_first *map);
+int enemy_random(t_first *play);
 int enemy_toorandom(t_first *map);
 int	start_wg(t_first *start);
 void	but_u(t_first *but);
@@ -54,5 +54,6 @@ void	but_Nr(t_first *but);
 void	but_Nl(t_first *but);
 void	but_Nu(t_first *but);
 void	but_Nd(t_first *but);
+int coin_count(t_first *play);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:11:27 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/04/30 17:23:39 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 11:15:18 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int start_wg(t_first *start)
 	run_map(start);
 	mlx_key_hook(start->win, hook_my_but, start);
 	mlx_hook(start->win, 17, 0, out_win, start);
-	mlx_loop_hook(start->mlx, enemy_random, start);
 	mlx_loop_hook(start->mlx, enemy_toorandom, start);
+	mlx_loop_hook(start->mlx, enemy_random, start);
 	mlx_loop(start->mlx);
 	//img = mlx_xpm_file_to_image(start->mlx, relative_path, st, &img_height);
 	return (1);

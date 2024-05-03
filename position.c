@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:30:25 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/04/26 12:30:19 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 12:22:05 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void track_positions(t_first *juego, int he, int wi, char type)// int index)
     	juego->map.enemy.Y_ax = he;
    	}
 }
+
 void actualPosition(t_first *juego)
 {
 	int he;

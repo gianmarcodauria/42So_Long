@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:23:18 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/04/29 15:23:33 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 12:19:16 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ void flood_fill(t_first *floodmap, int height, int width, char **dupMap)
 		&& (dupMap[height][width] == '0' || dupMap[height][width] == 'C'
 		|| dupMap[height][width] == 'E' || dupMap[height][width] == 'P' || dupMap[height][width] == 'N') && dupMap[height][width] != '1')
 		//&& dupMap[height][width] != 'N')
+		if (dupMap[height][width] == 'E')
+		{
+			dupMap[height][width] = '1';
+			return ;
+		}
 		dupMap[height][width] = '1';
 		if ((dupMap[height + 1][width] != '1'))
 			flood_fill(floodmap, height + 1, width, dupMap);

@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:23:18 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/04/26 12:28:20 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:06:26 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,23 @@ int dot_ber(char *fileber)
     }
     return (1);
 }
+
+int coin_count(t_first *play)
+{
+    int x;
+    int y;
+
+    y = -1;
+    while (play->matrix[++y])
+    {
+        x = 0;
+        while (play->matrix[y][x++])
+        {
+            if (play->matrix[y][x] == 'C')
+                return (0);
+        }
+    }
+    return (1);
+}
+
+

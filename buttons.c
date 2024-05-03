@@ -6,7 +6,7 @@
 /*   By: gd-auria <gd-auria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:55:54 by gd-auria          #+#    #+#             */
-/*   Updated: 2024/04/30 14:36:50 by gd-auria         ###   ########.fr       */
+/*   Updated: 2024/05/03 14:50:36 by gd-auria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ void	but_u(t_first *but)
 	Py = but->map.spawn.Y_ax;
 	if (but->matrix[Py - 1][Px] != '1')
 	{
+		if (but->matrix[Py - 1][Px] == 'N')
+		{
+			exit(1);
+			free (but);
+		}
+		if (but->matrix[Py - 1][Px] == 'E' && (coin_count(but) == 1) )
+				exit (1);
+		if (but->matrix[Py - 1][Px] == 'E' && coin_count(but) == 0)
+			return;
 		but->matrix[Py][Px] = '0';
 		but->matrix[Py - 1][Px] = 'P';
 		but->map.spawn.X_ax = Px;
@@ -40,6 +49,15 @@ void	but_d(t_first *but)
 	Py = but->map.spawn.Y_ax;
 	if (but->matrix[Py + 1][Px] != '1')
 	{
+		if (but->matrix[Py + 1][Px] == 'N')
+		{
+			exit(1);
+			free (but);
+		}
+		if (but->matrix[Py + 1][Px] == 'E' && (coin_count(but) == 1) )
+				exit (1);
+		if (but->matrix[Py + 1][Px] == 'E' && coin_count(but) == 0)
+			return;
 		but->matrix[Py][Px] = '0';
 		but->matrix[Py + 1][Px] = 'P';
 		but->map.spawn.X_ax = Px;
@@ -58,6 +76,15 @@ void	but_l(t_first *but)
 	Py = but->map.spawn.Y_ax;
 	if (but->matrix[Py][Px - 1] != '1')
 	{
+		if (but->matrix[Py][Px - 1] == 'N')
+		{
+			exit(1);
+			free (but);
+		}
+		if (but->matrix[Py][Px - 1] == 'E' && (coin_count(but) == 1) )
+				exit (1);
+		if (but->matrix[Py][Px - 1] == 'E' && coin_count(but) == 0)
+			return;
 		but->matrix[Py][Px] = '0';
 		but->matrix[Py][Px - 1] = 'P';
 		but->map.spawn.X_ax = Px - 1;
@@ -74,8 +101,17 @@ void	but_r(t_first *but)
 
 	Px = but->map.spawn.X_ax;
 	Py = but->map.spawn.Y_ax;
-	if (but->matrix[Py][Px + 1] != '1')
+	if (but->matrix[Py][Px + 1] != '1' )
 	{
+		if (but->matrix[Py][Px + 1] == 'N')
+		{
+			exit(1);
+			free (but);
+		}
+		if (but->matrix[Py][Px + 1] == 'E' && (coin_count(but) == 1) )
+				exit (1);
+		if (but->matrix[Py][Px + 1] == 'E' && coin_count(but) == 0)
+			return;
 		but->matrix[Py][Px] = '0';
 		but->matrix[Py][Px + 1] = 'P';
 		but->map.spawn.X_ax = Px + 1;
